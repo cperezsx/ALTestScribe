@@ -1,0 +1,22 @@
+{
+  "extension.description": "Capture and preserve Business Central AL test failures as durable local Markdown, JSON, or CSV reports.",
+  "command.category": "AL TestScribe",
+  "command.exportCurrentRun.title": "Export Current Test Failures",
+  "command.openLatestExport.title": "Open Latest Export",
+  "command.openExportFolder.title": "Open Export Folder",
+  "command.discardCurrentRun.title": "Discard Current Test Capture",
+  "command.openCurrentRunDetails.title": "Open Current Run Details",
+  "command.openFailureDetails.title": "Open Failure Details",
+  "command.refreshFailuresView.title": "Refresh Test Failures View",
+  "view.failures.name": "AL TestScribe",
+  "view.failures.welcome": "Run AL tests to capture failures here.\n[Open latest export](command:alTestScribe.openLatestExport)",
+  "configuration.title": "AL TestScribe",
+  "configuration.exportMode.description": "When captured test failures are written to report files.",
+  "configuration.exportMode.automatic.label": "Automatic",
+  "configuration.exportMode.manual.label": "Manual",
+  "configuration.exportMode.automatic.description": "Writes an updated report after every captured test failure.",
+  "configuration.exportMode.manual.description": "Keeps failures in memory until you run AL TestScribe: Export Current Test Failures.",
+  "configuration.formats.description": "One or more report formats written for each test run.",
+  "configuration.outputDirectory.description": "Workspace-relative directory where AL TestScribe saves reports.",
+  "configuration.userIdentifier.description": "Identifier used in the report-history path. Leave empty to use the operating-system username."
+}

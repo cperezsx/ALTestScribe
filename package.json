@@ -1,0 +1,197 @@
+{
+  "name": "al-test-scribe",
+  "displayName": "AL TestScribe",
+  "description": "%extension.description%",
+  "version": "1.0.0",
+  "publisher": "cperezsx",
+  "author": "Carlos Perez and Jose Miguel Dura Sirvent",
+  "contributors": [
+    "Carlos Perez (https://github.com/cperezsx)",
+    "Jose Miguel Dura Sirvent (https://github.com/jmdura)"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cperezsx/ALTestScribe.git"
+  },
+  "homepage": "https://github.com/cperezsx/ALTestScribe#readme",
+  "bugs": {
+    "url": "https://github.com/cperezsx/ALTestScribe/issues"
+  },
+  "galleryBanner": {
+    "color": "#071827",
+    "theme": "dark"
+  },
+  "icon": "assets/al-test-scribe-icon.png",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Testing",
+    "Other"
+  ],
+  "keywords": [
+    "AL",
+    "Business Central",
+    "testing",
+    "test failures",
+    "export"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:alTestScribe.exportCurrentRun",
+    "onCommand:alTestScribe.openLatestExport",
+    "onCommand:alTestScribe.openExportFolder"
+  ],
+  "extensionDependencies": [
+    "ms-dynamics-smb.al"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "alTestScribe.exportCurrentRun",
+        "title": "%command.exportCurrentRun.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "alTestScribe.openLatestExport",
+        "title": "%command.openLatestExport.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "alTestScribe.openExportFolder",
+        "title": "%command.openExportFolder.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "alTestScribe.discardCurrentRun",
+        "title": "%command.discardCurrentRun.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "alTestScribe.openCurrentRunDetails",
+        "title": "%command.openCurrentRunDetails.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "alTestScribe.openFailureDetails",
+        "title": "%command.openFailureDetails.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "alTestScribe.refreshFailuresView",
+        "title": "%command.refreshFailuresView.title%",
+        "category": "%command.category%",
+        "icon": "$(refresh)"
+      }
+    ],
+    "views": {
+      "test": [
+        {
+          "id": "alTestScribe.failures",
+        "name": "%view.failures.name%",
+        "contextualTitle": "%view.failures.name%",
+          "icon": "media/al-test-scribe-view.svg"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "alTestScribe.failures",
+        "contents": "%view.failures.welcome%"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "alTestScribe.refreshFailuresView",
+          "when": "view == alTestScribe.failures",
+          "group": "navigation"
+        },
+        {
+          "command": "alTestScribe.exportCurrentRun",
+          "when": "view == alTestScribe.failures",
+          "group": "navigation@1"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "alTestScribe.openCurrentRunDetails",
+          "when": "view == alTestScribe.failures && viewItem == alTestScribeRun",
+          "group": "inline"
+        },
+        {
+          "command": "alTestScribe.openFailureDetails",
+          "when": "view == alTestScribe.failures && viewItem == alTestScribeFailure",
+          "group": "inline"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "alTestScribe.openFailureDetails",
+          "when": "false"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "%configuration.title%",
+      "properties": {
+        "alTestScribe.exportMode": {
+          "type": "string",
+          "default": "automatic",
+          "enum": [
+            "automatic",
+            "manual"
+          ],
+          "enumItemLabels": [
+            "%configuration.exportMode.automatic.label%",
+            "%configuration.exportMode.manual.label%"
+          ],
+          "enumDescriptions": [
+            "%configuration.exportMode.automatic.description%",
+            "%configuration.exportMode.manual.description%"
+          ],
+          "description": "%configuration.exportMode.description%"
+        },
+        "alTestScribe.formats": {
+          "type": "array",
+          "default": [
+            "markdown",
+            "json",
+            "csv"
+          ],
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "markdown",
+              "json",
+              "csv"
+            ]
+          },
+          "description": "%configuration.formats.description%"
+        },
+        "alTestScribe.outputDirectory": {
+          "type": "string",
+          "default": "tools/al-test-scribe-results",
+          "description": "%configuration.outputDirectory.description%"
+        },
+        "alTestScribe.userIdentifier": {
+          "type": "string",
+          "default": "",
+          "description": "%configuration.userIdentifier.description%"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "node --check extension.js",
+    "check": "npm run lint && npm run package",
+    "package": "npx @vscode/vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.6.1"
+  }
+}

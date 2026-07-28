@@ -1,0 +1,22 @@
+{
+  "extension.description": "Captura y conserva errores de pruebas de Business Central AL como informes locales en Markdown, JSON o CSV.",
+  "command.category": "AL TestScribe",
+  "command.exportCurrentRun.title": "Exportar errores de la ejecución actual",
+  "command.openLatestExport.title": "Abrir la última exportación",
+  "command.openExportFolder.title": "Abrir la carpeta de exportaciones",
+  "command.discardCurrentRun.title": "Descartar la captura actual",
+  "command.openCurrentRunDetails.title": "Abrir el detalle de la ejecución actual",
+  "command.openFailureDetails.title": "Abrir el detalle del error",
+  "command.refreshFailuresView.title": "Actualizar la vista de errores de prueba",
+  "view.failures.name": "AL TestScribe",
+  "view.failures.welcome": "Ejecuta pruebas AL para capturar sus errores aquí.\n[Abrir la última exportación](command:alTestScribe.openLatestExport)",
+  "configuration.title": "AL TestScribe",
+  "configuration.exportMode.description": "Cuándo se escriben en archivos los errores de prueba capturados.",
+  "configuration.exportMode.automatic.label": "Automático",
+  "configuration.exportMode.manual.label": "Manual",
+  "configuration.exportMode.automatic.description": "Escribe un informe actualizado después de cada error de prueba capturado.",
+  "configuration.exportMode.manual.description": "Conserva los errores en memoria hasta ejecutar AL TestScribe: Exportar errores de la ejecución actual.",
+  "configuration.formats.description": "Uno o varios formatos de informe que se escriben por cada ejecución de prueba.",
+  "configuration.outputDirectory.description": "Directorio relativo al workspace donde AL TestScribe guarda los informes.",
+  "configuration.userIdentifier.description": "Identificador usado en la ruta del historial de informes. Déjalo vacío para usar el usuario del sistema operativo."
+}

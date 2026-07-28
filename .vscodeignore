@@ -1,0 +1,14 @@
+.gitignore
+.github/**
+.vscode/**
+node_modules/**
+*.vsix
+AGENTS.md
+PRODUCT.md
+DESIGN.md
+CHANGELOG.md
+CONTRIBUTING.md
+SECURITY.md
+SUPPORT.md
+docs/**
+site/**
